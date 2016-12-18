@@ -31,14 +31,14 @@ Strategy* init_strategy()
 
 	// Coordinates + score of the goal
 	//			X									Y								Score
-	strat->coord_goal[0][0] = -800;		strat->coord_goal[0][1] = 0;		strat->coord_goal[0][2] = 6;
-	strat->coord_goal[1][0] = 250;		strat->coord_goal[1][1] = 1250;		strat->coord_goal[1][2] = 4;
-	strat->coord_goal[2][0] = 100;		strat->coord_goal[2][1] = 0;		strat->coord_goal[2][2] = 1;
-	strat->coord_goal[3][0] = 250;		strat->coord_goal[3][1] = -1250;	strat->coord_goal[3][2] = 4;
-	strat->coord_goal[4][0] = 700;		strat->coord_goal[4][1] = -600;		strat->coord_goal[4][2] = 2;
-	strat->coord_goal[5][0] = -400;		strat->coord_goal[5][1] = -600;		strat->coord_goal[5][2] = 2;
-	strat->coord_goal[6][0] = -400;		strat->coord_goal[6][1] = 600;		strat->coord_goal[6][2] = 2;
-	strat->coord_goal[7][0] = 700;		strat->coord_goal[7][1] = 600;		strat->coord_goal[7][2] = 2;
+	strat->coord_goal[0][0] = -800;		strat->coord_goal[0][1] = 0;		strat->coord_goal[0][2] = 3;
+	strat->coord_goal[1][0] = 250;		strat->coord_goal[1][1] = 1250;		strat->coord_goal[1][2] = 2;
+	strat->coord_goal[2][0] = 100;		strat->coord_goal[2][1] = 0;		strat->coord_goal[2][2] = 2;
+	strat->coord_goal[3][0] = 250;		strat->coord_goal[3][1] = -1250;	strat->coord_goal[3][2] = 2;
+	strat->coord_goal[4][0] = 700;		strat->coord_goal[4][1] = -600;		strat->coord_goal[4][2] = 1;
+	strat->coord_goal[5][0] = -400;		strat->coord_goal[5][1] = -600;		strat->coord_goal[5][2] = 1;
+	strat->coord_goal[6][0] = -400;		strat->coord_goal[6][1] = 600;		strat->coord_goal[6][2] = 1;
+	strat->coord_goal[7][0] = 700;		strat->coord_goal[7][1] = 600;		strat->coord_goal[7][2] = 1;
 	strat->index_goal = 0;
 
 	for (int i = 0; i < NB_TARGETS; i++) {
@@ -126,7 +126,7 @@ static int determine_goal(CtrlStruct *cvs)
 		dist2target = getDistanceFromAtoB(std::pair<int, int>(cvs->rob_pos->x * 1000, cvs->rob_pos->y * 1000), std::pair<int, int>(cvs->strat->coord_goal[i][0], cvs->strat->coord_goal[i][1])) / 1000;
 		score = (KN*cvs->strat->coord_goal[i][2] + distOpp2target - KD*dist2target)*cvs->strat->avilability[i] / 100;
 		//		std::cout << "availability: " << cvs->strat->avilability[i] << " " << i << "\n";
-		printf("%d:  %f \n\n", i, score);
+//		printf("%d:  %f \n\n", i, score);
 		if (max == -10)
 			max = score;
 		if (score > max)
@@ -135,7 +135,7 @@ static int determine_goal(CtrlStruct *cvs)
 			max = score;
 		}
 	}
-	printf("INDEX NSM %d \n", index);
+//	printf("INDEX NSM %d \n", index);
 	return index;
 }
 
@@ -187,7 +187,7 @@ void main_strategy(CtrlStruct *cvs)
 
 	evaluate_Oponent(cvs);
 	//	determine_goal(cvs);
-	std::cout << "gamestate: " << cvs->strat->main_state << "\n";
+//	std::cout << "gamestate: " << cvs->strat->main_state << "\n";
 	switch (cvs->strat->main_state)
 	{
 	case GAME_STATE_START:
@@ -200,13 +200,13 @@ void main_strategy(CtrlStruct *cvs)
 		}
 		path_planning(cvs);
 		follow_path(cvs, cvs->path->theta, cvs->path->linspeed, cvs->rob_pos->theta);
-		std::cout << "intermediate goal: " << cvs->path->nextGoal[0] << " " << cvs->path->nextGoal[1] << "\n";
+//		std::cout << "intermediate goal: " << cvs->path->nextGoal[0] << " " << cvs->path->nextGoal[1] << "\n";
 		break;
 
 	case GAME_STATE_DRIVE:
-		std::cout << "goal: " << cvs->path->nextGoal[0] << " " << cvs->path->nextGoal[1] << "\n";
+//		std::cout << "goal: " << cvs->path->nextGoal[0] << " " << cvs->path->nextGoal[1] << "\n";
 		if (get_Distance(momentaryGoal, pos) < 30) {
-			std::cout << "_ strat arrived at target\n";
+//			std::cout << "_ strat arrived at target\n";
 			set_goal(cvs->path, pos, noGoal);
 			cvs->strat->main_state = GAME_STATE_Capture;					// wait 3sec
 			captured = cvs->inputs->nb_targets;
@@ -223,13 +223,13 @@ void main_strategy(CtrlStruct *cvs)
 		if (1){//cvs->inputs->target_detected) {
 //			std::cout << "capturing " << (cvs->inputs->t - timer) << " " << (cvs->inputs->nb_targets - captured) << "\n";
 			if ((cvs->inputs->t - timer)>4 || cvs->inputs->nb_targets > captured) {		//cvs->strat->avilability[cvs->strat->index_goal] = 0;												//todo change to exact secs
-				std::cout << "captured\n";
+//				std::cout << "captured\n";
 					cvs->strat->avilability[cvs->strat->index_goal] = 0;
 
 				
 				// set new goal
 				cvs->strat->main_state = GAME_STATE_SET_NEW_GOAL; 
-				std::cout << "old goal id: " << cvs->strat->index_goal << "availability: " << cvs->strat->avilability[cvs->strat->index_goal] << "\n";
+//				std::cout << "old goal id: " << cvs->strat->index_goal << "availability: " << cvs->strat->avilability[cvs->strat->index_goal] << "\n";
 
 				break;
 			}
@@ -250,7 +250,7 @@ void main_strategy(CtrlStruct *cvs)
 
 	case GAME_STATE_SET_NEW_GOAL:
 
-		std::cout << "new goal should be set" << (cvs->inputs->t - timer) << "\n";
+//		std::cout << "new goal should be set" << (cvs->inputs->t - timer) << "\n";
 		if (cvs->inputs->nb_targets <2) {
 			cvs->strat->index_goal = determine_goal(cvs);
 			ngoal = std::pair<int, int>(cvs->strat->coord_goal[cvs->strat->index_goal][0],
@@ -259,21 +259,21 @@ void main_strategy(CtrlStruct *cvs)
 		}
 		else {
 
-			std::cout << "setting base as target\n";
+//			std::cout << "setting base as target\n";
 			cvs->strat->main_state = GAME_STATE_DRIVE_HOME;
 			ngoal = get_node_pos(BASE_NODE_NB);
 		}
 
 		set_goal(cvs->path, pos, ngoal);
-		std::cout << "_strat goal set: " << ngoal.first << " " << ngoal.second << "\n";
+//		std::cout << "_strat goal set: " << ngoal.first << " " << ngoal.second << "\n";
 
-		std::cout << "_strat next goal on path: " << cvs->path->nextGoal[0] << " " << cvs->path->nextGoal[1] << " availability endgoal: " << cvs->strat->avilability[cvs->strat->index_goal] << "\n";
+//		std::cout << "_strat next goal on path: " << cvs->path->nextGoal[0] << " " << cvs->path->nextGoal[1] << " availability endgoal: " << cvs->strat->avilability[cvs->strat->index_goal] << "\n";
 		break;
 
 	case GAME_STATE_DRIVE_HOME:
 		
 		if (get_Distance(get_node_pos(BASE_NODE_NB), pos) < 30) {
-			std::cout << "_ strat arrived home\n";
+//			std::cout << "_ strat arrived home\n";
 			set_goal(cvs->path, pos, noGoal);
 			if (!cvs->outputs->flag_release)
 				cvs->outputs->flag_release = 1;
@@ -288,7 +288,7 @@ void main_strategy(CtrlStruct *cvs)
 			timer = cvs->inputs->t;
 			break;
 		}
-		std::cout << "driving home: " << cvs->path->nextGoal[0] << " " << cvs->path->nextGoal[1];
+//		std::cout << "driving home: " << cvs->path->nextGoal[0] << " " << cvs->path->nextGoal[1];
 		update_path_planning(cvs);
 		path_planning(cvs);
 		follow_path(cvs, cvs->path->theta, cvs->path->linspeed, cvs->rob_pos->theta);
