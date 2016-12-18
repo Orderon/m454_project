@@ -16,7 +16,7 @@ NAMESPACE_INIT(ctrlGr7);
 #define KOPP    0.45   /// 0.45
 #define K_FROTT    0.03    /// 0
 #define K_VITESSE  7   /// 9
-#define K_GOAL     6.5   /// 6.5
+#define K_GOAL     7.5   /// 6.5
 #define M_TO_MM    1000
 #define DSTARGOAL  130
 #define D_OPP    0.75
@@ -138,7 +138,7 @@ void initializeNodes()
 	nodes.push_back(new NODE(-800, k * 0));
 	//! level 2 pucks
 	nodes.push_back(new NODE(250, k * 1250));
-	nodes.push_back(new NODE(100, k * 0));
+	nodes.push_back(new NODE(50, k * 0));
 	nodes.push_back(new NODE(250, -k * 1250));
 	//! level 1 pucks
 	nodes.push_back(new NODE(700, -k * 600));

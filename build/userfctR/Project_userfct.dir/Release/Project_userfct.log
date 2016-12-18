@@ -1,19 +1,11 @@
 ﻿cl : Command line warning D9002: ignoring unknown option '-O3'
-  strategy_gr7.cc
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\math.h(1010): warning C4005: 'M_PI': macro redefinition
-  c:\users\csbau\mobile_robots\m454_project\mbsyscopy\win64_include_lib\include\sdl\SDL_stdinc.h(339): note: see previous definition of 'M_PI'
-C:\Users\csbau\mobile_robots\m454_project\userFiles\ctrl\groups_ctrl\gr7\strategy\strategy_gr7.cc(76): warning C4838: conversion from 'int' to 'double' requires a narrowing conversion
-C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\utility(172): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  C:\Users\csbau\mobile_robots\m454_project\userFiles\ctrl\groups_ctrl\gr7\strategy\strategy_gr7.cc(125): note: see reference to function template instantiation 'std::pair<int,int>::pair<double,double,void,0>(_Other1 &&,_Other2 &&) noexcept' being compiled
-          with
-          [
-              _Other1=double,
-              _Other2=double
-          ]
-  C:\Users\csbau\mobile_robots\m454_project\userFiles\ctrl\groups_ctrl\gr7\strategy\strategy_gr7.cc(125): note: see reference to function template instantiation 'std::pair<int,int>::pair<double,double,void,0>(_Other1 &&,_Other2 &&) noexcept' being compiled
-          with
-          [
-              _Other1=double,
-              _Other2=double
-          ]
+  path_planning_gr7.cc
+C:\Users\csbau\mobile_robots\m454_project\userFiles\ctrl\groups_ctrl\gr7\path\path_planning_gr7.cc(169): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\csbau\mobile_robots\m454_project\userFiles\ctrl\groups_ctrl\gr7\path\path_planning_gr7.cc(237): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\csbau\mobile_robots\m454_project\userFiles\ctrl\groups_ctrl\gr7\path\path_planning_gr7.cc(247): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\csbau\mobile_robots\m454_project\userFiles\ctrl\groups_ctrl\gr7\path\path_planning_gr7.cc(616): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\csbau\mobile_robots\m454_project\userFiles\ctrl\groups_ctrl\gr7\path\path_planning_gr7.cc(617): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\csbau\mobile_robots\m454_project\userFiles\ctrl\groups_ctrl\gr7\path\path_planning_gr7.cc(613): warning C4101: 'dist2Opp_x': unreferenced local variable
+C:\Users\csbau\mobile_robots\m454_project\userFiles\ctrl\groups_ctrl\gr7\path\path_planning_gr7.cc(613): warning C4101: 'dist2Opp_norm': unreferenced local variable
+C:\Users\csbau\mobile_robots\m454_project\userFiles\ctrl\groups_ctrl\gr7\path\path_planning_gr7.cc(613): warning C4101: 'dist2Opp_y': unreferenced local variable
   Project_userfct.vcxproj -> C:\Users\csbau\mobile_robots\m454_project\build\userfctR\Release\Project_userfct.lib
