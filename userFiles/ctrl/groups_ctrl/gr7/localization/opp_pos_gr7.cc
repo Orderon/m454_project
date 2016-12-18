@@ -39,7 +39,7 @@ void opponents_tower(CtrlStruct *cvs)
 	nb_opp = opp_pos->nb_opp;
 
 
-	// no opponent
+	// if no opponent
 	if (!nb_opp)
 	{
 		return;
@@ -73,16 +73,17 @@ void opponents_tower(CtrlStruct *cvs)
 		rise_2 = inputs->last_rising[rise_index_2];
 		fall_2 = inputs->last_falling[fall_index_2];
 	}
+	
+	
 	// ----- opponents position computation start ----- //
 
-
-
 	if (nb_opp == 2) {
-
+		//compute single opponent position
 		single_opp_tower(rise_1, fall_1, rob_pos->x, rob_pos->y, rob_pos->theta, &(opp_pos->x[0]), &(opp_pos->y[0]));
 
 		single_opp_tower(rise_2, fall_2, rob_pos->x, rob_pos->y, rob_pos->theta, &(opp_pos->x[1]), &(opp_pos->y[1]));
 
+		// store opponents positions
 		double posRob0[] = { opp_pos->x[0],opp_pos->y[0] };
 		double posRob1[] = { opp_pos->x[1],opp_pos->y[1] };
 
@@ -169,7 +170,6 @@ int single_opp_tower(double last_rise, double last_fall, double rob_x, double ro
 
 	*new_x_opp =  dxAbs;
 	*new_y_opp =  dyAbs;
-	
 
 	return 1;
 }
