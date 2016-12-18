@@ -138,7 +138,7 @@ void initializeNodes()
 	nodes.push_back(new NODE(-800, k * 0));
 	//! level 2 pucks
 	nodes.push_back(new NODE(250, k * 1250));
-	nodes.push_back(new NODE(50, k * 0));
+	nodes.push_back(new NODE(100, k * 0));
 	nodes.push_back(new NODE(250, -k * 1250));
 	//! level 1 pucks
 	nodes.push_back(new NODE(700, -k * 600));

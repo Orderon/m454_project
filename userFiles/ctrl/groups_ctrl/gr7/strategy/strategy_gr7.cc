@@ -31,14 +31,14 @@ Strategy* init_strategy()
 
 	// Coordinates + score of the goal
 	//			X									Y								Score
-	strat->coord_goal[0][0] = -800;		strat->coord_goal[0][1] = 0;		strat->coord_goal[0][2] = 3;
-	strat->coord_goal[1][0] = 250;		strat->coord_goal[1][1] = 1250;		strat->coord_goal[1][2] = 2;
-	strat->coord_goal[2][0] = 100;		strat->coord_goal[2][1] = 0;		strat->coord_goal[2][2] = 2;
-	strat->coord_goal[3][0] = 250;		strat->coord_goal[3][1] = -1250;	strat->coord_goal[3][2] = 2;
-	strat->coord_goal[4][0] = 700;		strat->coord_goal[4][1] = -600;		strat->coord_goal[4][2] = 1;
-	strat->coord_goal[5][0] = -400;		strat->coord_goal[5][1] = -600;		strat->coord_goal[5][2] = 1;
-	strat->coord_goal[6][0] = -400;		strat->coord_goal[6][1] = 600;		strat->coord_goal[6][2] = 1;
-	strat->coord_goal[7][0] = 700;		strat->coord_goal[7][1] = 600;		strat->coord_goal[7][2] = 1;
+	strat->coord_goal[0][0] = -800;		strat->coord_goal[0][1] = 0;		strat->coord_goal[0][2] = 6;
+	strat->coord_goal[1][0] = 250;		strat->coord_goal[1][1] = 1250;		strat->coord_goal[1][2] = 4;
+	strat->coord_goal[2][0] = 100;		strat->coord_goal[2][1] = 0;		strat->coord_goal[2][2] = 1;
+	strat->coord_goal[3][0] = 250;		strat->coord_goal[3][1] = -1250;	strat->coord_goal[3][2] = 4;
+	strat->coord_goal[4][0] = 700;		strat->coord_goal[4][1] = -600;		strat->coord_goal[4][2] = 2;
+	strat->coord_goal[5][0] = -400;		strat->coord_goal[5][1] = -600;		strat->coord_goal[5][2] = 2;
+	strat->coord_goal[6][0] = -400;		strat->coord_goal[6][1] = 600;		strat->coord_goal[6][2] = 2;
+	strat->coord_goal[7][0] = 700;		strat->coord_goal[7][1] = 600;		strat->coord_goal[7][2] = 2;
 	strat->index_goal = 0;
 
 	for (int i = 0; i < NB_TARGETS; i++) {
