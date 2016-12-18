@@ -40,7 +40,7 @@
 blue_ctrl   : Gr7Ctrl
 red_ctrl    : NoCtrl
 yellow_ctrl : NoCtrl
-white_ctrl  : KeyboardCtrl
+white_ctrl  : NoCtrl
 
 
 # -- ROBOT INITIAL POSITIONS -- #

@@ -31,8 +31,9 @@ struct PathPlanning
 	double linspeed;
 };
 
-PathPlanning* init_path_planning();
+PathPlanning* init_path_planning(CtrlStruct *cvs);
 void free_path_planning(PathPlanning *path);
+void init_djikstra(CtrlStruct*cvs);
 
 void set_goal(PathPlanning *path, std::pair<int, int> pos, std::pair<int, int> goal);
 void update_path_planning(CtrlStruct *cvs);
